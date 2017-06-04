@@ -3,10 +3,68 @@
 <head>
     <title>GIPHY Bonanza</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-S7YMK1xjUjSpEnF4P8hPUcgjXYLZKK3fQW1j5ObLSl787II9p8RO9XUGehRmKsxd" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/plugin/gifplayer/dist/gifplayer.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">
 </head>
 <body>
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">Bootswatch</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="themes">
+                        <li><a href="../default/">Default</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../cerulean/">Cerulean</a></li>
+                        <li><a href="../cosmo/">Cosmo</a></li>
+                        <li><a href="../cyborg/">Cyborg</a></li>
+                        <li><a href="../darkly/">Darkly</a></li>
+                        <li><a href="../flatly/">Flatly</a></li>
+                        <li><a href="../journal/">Journal</a></li>
+                        <li><a href="../lumen/">Lumen</a></li>
+                        <li><a href="../paper/">Paper</a></li>
+                        <li><a href="../readable/">Readable</a></li>
+                        <li><a href="../sandstone/">Sandstone</a></li>
+                        <li><a href="../simplex/">Simplex</a></li>
+                        <li><a href="../slate/">Slate</a></li>
+                        <li><a href="../solar/">Solar</a></li>
+                        <li><a href="../spacelab/">Spacelab</a></li>
+                        <li><a href="../superhero/">Superhero</a></li>
+                        <li><a href="../united/">United</a></li>
+                        <li><a href="../yeti/">Yeti</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="../help/">Help</a>
+                </li>
+                <li>
+                    <a href="http://news.bootswatch.com">Blog</a>
+                </li>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input id = "searchText" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button id = "searchButton" type="button" class="btn btn-default">Submit</button>
+                </form>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+                <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
 
 <div class="container">
 
@@ -15,14 +73,23 @@
             <div class="col-lg-8 col-md-7 col-sm-6">
                 <h1>GIPHY Bonanza</h1>
                 <p class="lead">Week 4 Assignment - GIPHY API AWESOME</p>
+                <p class="bs-component savedSearches">
+                    <a href="#" class="btn btn-default blist">Willem Dafoe</a>
+                    <a href="#" class="btn btn-default blist">Forest Whitaker</a>
+                    <a href="#" class="btn btn-default blist">Nick Nolte</a>
+                    <a href="#" class="btn btn-default blist">John Turturro</a>
+                    <a href="#" class="btn btn-default blist">Adrien Brody</a>
+                    <a href="#" class="btn btn-default blist">Colin Farrell</a>
+                    <a href="#" class="btn btn-default blist">Kevin Bacon</a>
+                    <a href="#" class="btn btn-default blist">John Goodman</a>
+                    <a href="#" class="btn btn-default blist">Danny Glover</a>
+                    <a href="#" class="btn btn-default blist">Rutger Hauer</a>
+                </p>
+
+
+
                 <p class="bs-component" id="searchResults">
-                    <a href="#" class="btn btn-default">Default</a>
-                    <a href="#" class="btn btn-primary">Primary</a>
-                    <a href="#" class="btn btn-success">Success</a>
-                    <a href="#" class="btn btn-info">Info</a>
-                    <a href="#" class="btn btn-warning">Warning</a>
-                    <a href="#" class="btn btn-danger">Danger</a>
-                    <a href="#" class="btn btn-link">Link</a>
+
                 </p>
             </div>
         </div>
@@ -30,170 +97,7 @@
 
     <!-- Buttons
     ================================================== -->
-    <div class="bs-docs-section">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 id="buttons">Buttons</h1>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-7">
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-default">Default</a>
-                    <a href="#" class="btn btn-primary">Primary</a>
-                    <a href="#" class="btn btn-success">Success</a>
-                    <a href="#" class="btn btn-info">Info</a>
-                    <a href="#" class="btn btn-warning">Warning</a>
-                    <a href="#" class="btn btn-danger">Danger</a>
-                    <a href="#" class="btn btn-link">Link</a>
-                </p>
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-default disabled">Default</a>
-                    <a href="#" class="btn btn-primary disabled">Primary</a>
-                    <a href="#" class="btn btn-success disabled">Success</a>
-                    <a href="#" class="btn btn-info disabled">Info</a>
-                    <a href="#" class="btn btn-warning disabled">Warning</a>
-                    <a href="#" class="btn btn-danger disabled">Danger</a>
-                    <a href="#" class="btn btn-link disabled">Link</a>
-                </p>
-
-
-                <div style="margin-bottom: 15px;">
-                    <div class="btn-toolbar bs-component" style="margin: 0;">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">Default</a>
-                            <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-primary">Primary</a>
-                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-success">Success</a>
-                            <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-info">Info</a>
-                            <a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-warning">Warning</a>
-                            <a href="#" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-primary btn-lg">Large button</a>
-                    <a href="#" class="btn btn-primary">Default button</a>
-                    <a href="#" class="btn btn-primary btn-sm">Small button</a>
-                    <a href="#" class="btn btn-primary btn-xs">Mini button</a>
-                </p>
-
-            </div>
-            <div class="col-lg-5">
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-default btn-lg btn-block">Block level button</a>
-                </p>
-
-
-                <div class="bs-component" style="margin-bottom: 15px;">
-                    <div class="btn-group btn-group-justified">
-                        <a href="#" class="btn btn-default">Left</a>
-                        <a href="#" class="btn btn-default">Middle</a>
-                        <a href="#" class="btn btn-default">Right</a>
-                    </div>
-                </div>
-
-                <div class="bs-component" style="margin-bottom: 15px;">
-                    <div class="btn-toolbar">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">1</a>
-                            <a href="#" class="btn btn-default">2</a>
-                            <a href="#" class="btn btn-default">3</a>
-                            <a href="#" class="btn btn-default">4</a>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">5</a>
-                            <a href="#" class="btn btn-default">6</a>
-                            <a href="#" class="btn btn-default">7</a>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">8</a>
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    Dropdown
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Dropdown link</a></li>
-                                    <li><a href="#">Dropdown link</a></li>
-                                    <li><a href="#">Dropdown link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bs-component">
-                    <div class="btn-group-vertical">
-                        <a href="#" class="btn btn-default">Button</a>
-                        <a href="#" class="btn btn-default">Button</a>
-                        <a href="#" class="btn btn-default">Button</a>
-                        <a href="#" class="btn btn-default">Button</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <div id="source-modal" class="modal fade">
         <div class="modal-dialog modal-lg">
@@ -233,11 +137,8 @@
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 <script type="text/javascript" src="assets/plugin/gifplayer/dist/jquery.gifplayer.js"></script>
-
 <script src="assets/javascript/app.js"></script>
 
 </body>

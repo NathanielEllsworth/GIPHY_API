@@ -7,7 +7,7 @@ var defaultGiphySearches = [
     {
         query: 'willem+dafoe',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -15,7 +15,7 @@ var defaultGiphySearches = [
     {
         query: 'forest+whitaker',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -23,7 +23,7 @@ var defaultGiphySearches = [
     {
         query: 'nick+nolte',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -31,7 +31,7 @@ var defaultGiphySearches = [
     {
         query: 'john+turturro',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -39,7 +39,7 @@ var defaultGiphySearches = [
     {
         query: 'adrien+brody',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -47,7 +47,7 @@ var defaultGiphySearches = [
     {
         query: 'colin+farrell',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -55,7 +55,7 @@ var defaultGiphySearches = [
     {
         query: 'kevin+bacon',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -63,7 +63,7 @@ var defaultGiphySearches = [
     {
         query: 'john+goodman',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -71,7 +71,7 @@ var defaultGiphySearches = [
     {
         query: 'danny+glover',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -79,7 +79,7 @@ var defaultGiphySearches = [
     {
         query: 'rutger+hauer',
         rating: 'r',
-        limit: 5,
+        limit: 10,
         button: {},
         data: {},
         url: "",
@@ -90,7 +90,7 @@ var defaultGiphySearches = [
 // Returns the Giphy API URL
 //
 function getApiUrl() {
-    return  "http://api.giphy.com/v1/gifs/search";
+    return "http://api.giphy.com/v1/gifs/search";
 }
 
 //
@@ -109,11 +109,11 @@ function getImage(giphySearch) {
 
     url += '?' + $.param({
             'api_key': getKey(),
-            'q' : giphySearch.query,
-            'limit' : giphySearch.limit,
-            'rating' : giphySearch.rating,
-            'sort' : "relevant",
-    });
+            'q': giphySearch.query,
+            'limit': giphySearch.limit,
+            'rating': giphySearch.rating,
+            'sort': "relevant",
+        });
     giphySearch.url = url;
 
     console.log(url);
@@ -131,24 +131,38 @@ function getImage(giphySearch) {
 
         // =============== put step 2 in between these dashes ==================
 
-        giphySearch.data = response.data[0];
+        $("#searchResults").empty();
 
-        console.log(giphySearch.data.url);
 
-        var image = $("<img " +
-            "class=\"giphy\" " +
-            "id=\"" + giphySearch.data.id + "\" " +
-            "data-src=\"static\" " +
-            "url-static=" + giphySearch.data.images.fixed_height_still.url + " " +
-            "url-animated=" + giphySearch.data.images.fixed_height.url + " " +
-            "src=" + giphySearch.data.images.fixed_height_still.url + ">");
+        for (var i = 0; i < response.data.length; i++) {
 
-        image.css("border-radius", "25px");
+            giphySearch.data = response.data[i];
+            console.log(giphySearch.data.url);
 
-        $("#searchResults").prepend(image);
+            var image = $("<img " +
+                "class=\"giphy\" " +
+                "id=\"" + giphySearch.data.id + "\" " +
+                "data-src=\"static\" " +
+                "url-static=" + giphySearch.data.images.fixed_height_still.url + " " +
+                "url-animated=" + giphySearch.data.images.fixed_height.url + " " +
+                "src=" + giphySearch.data.images.fixed_height_still.url + ">");
+
+            image.css("border-radius", "25px");
+
+            var imgDiv = $("<div class='resultImage'>").append(
+                $("<div>").text("Rating: " + giphySearch.data.rating).css("text-align", "center")
+            ).append(image);
+
+            imgDiv.css("display", "inline-block");
+
+            $("#searchResults").prepend(imgDiv);
+
+        }
+
 
         // ========================
     });
+
 }
 
 //
@@ -159,7 +173,7 @@ function getImage(giphySearch) {
 function main() {
 
     // Attach a delegated click event to all giphy images
-    $("#searchResults").on("click", ".giphy", function() {
+    $("#searchResults").on("click", ".giphy", function () {
 
         // Look up both the animated and static images in the DOM using JQuery selectors
         // Each image contains a unique ID provided by the giphy API
@@ -185,11 +199,56 @@ function main() {
         }
     });
 
-    for (var i = 0; i < defaultGiphySearches.length; i++) {
 
-        getImage(defaultGiphySearches[i]);
+    // for (var i = 0; i < defaultGiphySearches.length; i++) {
+    //
+    //     getImage(defaultGiphySearches[i]);
+    //
+    // }
 
-    }
+    // Attach a delegated click event to all giphy images
+    $("#searchButton").on("click", function () {
+
+        $("#searchText").val();
+        var searchText = $("#searchText").val();
+        console.log(searchText);
+
+        var giphySearch = {
+            query: searchText,
+            rating: 'r',
+            limit: 10,
+            button: {},
+            data: {},
+            url: "",
+        };
+
+        getImage(giphySearch);
+
+        var savedSearchButton = $('<a href="#" class="btn btn-default blist">').text(giphySearch.query);
+
+        //image.css("border-radius", "25px");
+        $(".savedSearches").append(savedSearchButton);
+
+
+    });
+
+    // Attach a delegated click event to all giphy images
+    $(".savedSearches").on("click", ".blist", function () {
+
+        var giphySearch = {
+            query: $(this).text(),
+            rating: 'r',
+            limit: 10,
+            button: {},
+            data: {},
+            url: "",
+        };
+
+        getImage(giphySearch);
+
+        console.log($(this).text());
+    });
+
 
 }
-$( document ).ready( main );
+$(document).ready(main);
